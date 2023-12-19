@@ -30,6 +30,7 @@
 
 \subsubsection{OpenFOAM and the preCICE-OpenFOAM adapter}
 \begin{itemize}
+	\item OpenFOAM
 	\begin{itemize}
 		\item Popular open-source PDE tool in academia and industry
 		\item Enables the use and modification of different solvers
@@ -59,6 +60,8 @@ Lets introduce the broad concept of the adapter here and add more details, eg ab
 	\item Inflow field is either computed by AeroDyn or received from external CFD solver
 	\item Has a dedicated C++ API for the coupling with CFD solvers
 \end{itemize}
+
+OpenFAST is mainly used to perform turbine loads analysis and drive the detailed turbine design. The computational cost is therefore higher than for tools used in the early design exploration phase like WISDEM, RAFT or FLORIS, but lower than highly resolved solvers necessary to understand the actual physics and check the final turbine design like ExaWind or SOWFA. 
 
 \subsection{Software concept}
 
