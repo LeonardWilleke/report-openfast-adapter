@@ -28,11 +28,19 @@
 \end{figure*}
 
 
-\subsubsection{OpenFOAM adapter}
+\subsubsection{OpenFOAM and the preCICE-OpenFOAM adapter}
 \begin{itemize}
-	\item Enables the coupling of OpenFOAM via preCICE in different simulation scenarios
-	\item Exemplifies the development strategy behind preCICE: Adapter is a library for OpenFOAM and called on runtime to perform the coupling without any modification to the OpenFOAM source code
-	\item Different modules for different kinds of multi-physics simulations: FSI, FF, CHT
+	\begin{itemize}
+		\item Popular open-source PDE tool in academia and industry
+		\item Enables the use and modification of different solvers
+		\item Used mainly for CFD but also FEM simulations 
+	\end{itemize}
+	\item Adapter
+	\begin{itemize}
+		\item Enables the coupling of OpenFOAM via preCICE in different simulation scenarios
+		\item Exemplifies the development strategy behind preCICE: Adapter is a library for OpenFOAM and called on runtime to perform the coupling without any modification to the OpenFOAM source code
+		\item Different modules for different kinds of multi-physics simulations: FSI, FF, CHT
+	\end{itemize}
 \end{itemize}	
 Note:
 I should introduce the OpenFOAM adapter at some point.
