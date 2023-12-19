@@ -1,3 +1,138 @@
 \section{Introduction}
 
-\lettrine{T}{his} template is a simple article template following all the guidelines of AE2333-I, based on the official AIAA template. Refer to the AE2333-I Word template to see all the procedures and guidelines. Please note that you are free to use other formatting styles, as long as you are consistent in how you apply them throughout your text. By default, the article is in one column. Switching to two columns can be done using the \emph{twocolumn} global option, resulting in the following first line in article.tex: \emph{\textbackslash documentclass[twocolumn]\{layout/tudelft-aiaa\}}.
+The big picture
+\\
+ \begin{itemize}
+ 	\item Wind energy research
+ 	\item Simulation of wind turbines with the Actuator Line Method
+ 	\item Coupling of wind turbine simulation with LES CFD solver to accurately solve the wind field
+ 	\item Idea and general concept of a preCICE-OpenFAST adapter
+ 	\\
+ \end{itemize}
+
+\begin{figure*}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{images/openfast-coupling-scheme.png}
+	\caption{Coupling of OpenFAST to a CFD program. The fluid solver computes the flow dynamics and sends velocity data to OpenFAST. OpenFAST simulates the turbine dynamics and sends back forces and deflections, which are imposed on the flow field. Source: OpenFAST documentation\protect\footnotemark}
+	\label{fig:openfast:coupling}
+\end{figure*}
+
+\footnotetext{{\url{https://ganesh-openfast.readthedocs.io/en/latest/_images/actuatorLine_illustrationViz.pdf}(visited on 07.11.2023)}}
+
+Literature Review: Understand what has been done already to couple OpenFAST with CFD solvers and how our approach relates to that
+\\
+\begin{comment}
+	
+
+\textbf{OF2: A coupling library for OpenFOAM}
+\begin{itemize}
+    \item Motivation: Model FOWTs with mixed fidelity to speed up the design process
+    \item OpenFOAM computes the floater hydrodynamics with high fidelity
+    \item OpenFAST computes the rotor aerodynamics and servo-elastic response in low-fidelity
+    \item Method: Two OpenFOAM libraries perform the coupling
+    \item libForcedOpenFAST: Software layer to interact with and execute OpenFAST
+    \item libOF2: Software layer to read and write data from OpenFOAM
+    \item Both libraries communicate with each other
+    \item Benefits: Less computationally expensive than CFD only, simulation of large turbine displacements (drift, rotation) possible
+    \item Drawbacks: Done for hydrodynamics (OpenFOAM replaces HydroDyn), not sure if this approach would work for aerodynamics as well (yes)
+    \\
+\end{itemize}
+
+\end{comment}
+
+\textbf{AspFAST} \cite{Taschner:2022}
+\begin{itemize}
+	\item Motivation
+	\begin{itemize}
+		\item Wind farm simulation combines the analysis of large-scale flow dynamics with individual turbine behavior
+		\item Different tools are needed to model these two phenomena
+		\item AspFAST couples the LES code GRASP with the wind turbine tool OpenFAST to perform such simulations
+	\end{itemize}
+	\item Methodology
+	\begin{itemize}
+		\item AspFAST is a binder code between the GPU-driven GRASP and the CPU-driven OpenFAST
+		\item OpenFAST is accessed via C++ API → AspFAST is the driver code
+		\item AspFAST takes care of the mapping and communication between the tools
+	\end{itemize}
+	\item What AspFAST does
+	\begin{itemize}
+		\item Synchronize GRASP and OpenFAST
+		\item Exchange data: Force, Velocity, Position (of the turbine blades)
+		\item Map data and make use of the actuator line model
+		\begin{itemize}
+			\item Map velocity from GRASP to OpenFAST
+			\item Map force from OpenFAST to GRASP
+			\item Make use of both internal meshes inside of OpenFAST
+		\end{itemize}
+	\end{itemize}
+	\item How it relates to our idea
+	\begin{itemize}
+		\item Very close to what we want to achieve
+		\item Difference: GRASP is a commercial and licensed software, AspFAST allows coupling only to this one solver
+		\item The coupling of the parallel flow solver NaluWind with OpenFAST pursues a very similar idea
+		\\
+	\end{itemize}
+\end{itemize}
+
+
+\textbf{foamFAST and MPCCI coupling tool} \cite{Weber:2017}
+\begin{itemize}
+	\item Motivation
+	\begin{itemize}
+		\item Replace the low-fidelity aerodynamic calculations in FAST, based on the BEM theory, with high-fidelity calculations in OpenFOAM
+		\item BEM theory is not sufficient for many applications; CFD is needed
+		\item Use the coupling tool MpCCI to perform the coupling
+	\end{itemize}
+	\item Methodology
+	\begin{itemize}
+		\item Couple OpenFOAM and OpenFAST via the coupling tool MpCCI
+		\item MpCCI is a licensed coupling tool for partitioned multi-physics simulations developed by the Fraunhofer SCAI
+		\begin{itemize}
+			\item Connect tools to MpCCI via adapters
+			\item Once the adapter is written, you can couple your tool to any other tool connected to MpCCI
+			\item MpCCI acts as the master algorithm
+		\end{itemize}
+		\item This project developed an OpenFAST adapter from scratch and adapted an existing OpenFOAM adapter to perform the coupling
+		\item Source code is not violated
+	\end{itemize}
+	\item How it relates to our idea
+	\begin{itemize}
+		\item Very similar approach to preCICE´
+		\item Difference of MpCCI and preCICE: preCICE takes the library approach, while MpCCI takes the master algorithm approach
+		\item MpCCI is commercial and has limited HPC capabilities
+		\\
+	\end{itemize}
+\end{itemize}
+
+
+\textbf{SOWFA} \cite{Churchfield:2012}
+\begin{itemize}
+	\item Developed by NREL
+	\item Simulator for Wind Farm Applications based on OpenFOAM
+	\item Enables a coupling with OpenFAST
+	\item Methodology
+	\begin{itemize}
+		\item Implements a turbine class horizontalAxisALM in OpenFOAM to call OpenFAST and exchange data
+		\item This class can be included in any OpenFOAM solver
+		\item The solver calls OpenFAST during each timestep
+	\end{itemize}
+	\item How this relates to our idea
+	\begin{itemize}
+		\item Different approach: Is based on the modification of OpenFOAM source code while we strive to leave the solvers untouched
+		\item A lot of internal OpenFOAM knowledge necessary
+		\\
+	\end{itemize}
+\end{itemize}
+
+\textbf{Coupling of NaluWind with OpenFAST} \cite{Ananthan:2019}\\
+\begin{itemize}
+	\item TODO\\
+\end{itemize}
+
+Given the previous work, why should we continue to develop a preCICE-OpenFAST adapter?
+\begin{itemize}
+	\item Combines positive aspects of previous works while avoiding some drawbacks
+	\item Maintainability: Adapter is a separated piece of code which is easier to maintain than a modified OpenFOAM solver
+	\item Open access: No license
+	\item Plug and play: Adapter opens the road to connect OpenFAST not only to OpenFOAM, but to any CFD solver coupled to preCICE
+\end{itemize}

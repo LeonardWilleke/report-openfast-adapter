@@ -2,11 +2,17 @@
 
 %% Additional packages and commands
 \renewcommand{\deg}{\si{\degree}\xspace}
+\usepackage[newfloat]{minted} % (recommended)
+\usepackage{comment}
+\usepackage{biblatex}
+\addbibresource{article.bib}
+% Set global Minted options
+\setminted{linenos, autogobble, frame=lines, framesep=2mm}
 
 %% Defining title, author and affiliation
-\title{Scientific Article Template for AE2223-I}
-\author{List of Authors}
-\affil{Project Group Affiliation}
+\title{A preCICE-OpenFAST adapter \\ to couple OpenFAST to CFD simulation tools}
+\author{Leonard Willeke}
+\affil{Delft University of Technology}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% Begin of document %%%%%
@@ -21,7 +27,17 @@
 %% Abstract
 
 \begin{abstract}
-    \noindent  The abstract should appear at the beginning of your paper and it should not exceed 250 words. It should be one paragraph long and it should be comprehensible on its own, separately from the rest of the article. It should concisely indicate the background, scientific gap, research question or purpose, method, main results and conclusions dealt with in the article. Do not cite references in the abstract. The abstract is bold and indented 3 picas (1/2”) on each side by default.
+    \noindent  
+    \begin{itemize}
+    	\item Flow dynamics in wind parks are important for many engineering problems from optimized control to load reduction
+    	\item High-fidelity flow computation, eg in OpenFOAM, is desirable to understand the farm flow dynamic
+    	\item Low-fidelity simulation of the wind turbines is often sufficient
+    	\item OpenFAST allows to simulate one or multiple turbines in low fidelity
+    	\item I present a preCICE-OpenFAST adapter to couple OpenFAST to the coupling library preCICE
+    	\item preCICE couples simulation programs in a black-box manner to achieve multi-´physics simulations
+    	\item The adapter serves as driver code for OpenFAST to steer the simulation and calls preCICE for the data exchange
+    	\item As a first proof of concept, a coupling to OpenFOAM with limited capabilities is presented
+    \end{itemize}
 \end{abstract}
 
 }
@@ -48,26 +64,30 @@
 
 \input{introduction}
 
-\input{methodology}
+\input{software}
 
 \input{results-discussion}
+
+\input{challenges}
 
 \input{conclusion}
 
 \section*{Acknowledgments}
 
-Use this section to thank anyone besides the main author(s) who has contributed to the paper. Avoid expressions such as “One of us (S.B.A.) would like to thank…” Instead, write “F. A. Author thanks…”.
+I am grateful to Prof. Axelle Viré who accepted me as a visiting researcher and made this work possible. Many thanks to her and Evert Ewald for the discussions and hints during our meetings. Extended thanks to Benjamin Uekermann, who enabled my visit at TU Delft in the first place and provided feedback along the way. Lastly, I want to thank the wonderful crowd of PhD researchers in the wind energy department who made my time in Delft memorable.
 
 %% Bibliography
 
-\renewcommand{\bibpreamble}{For a full documentation of the references, please refer to the sample.bib file. You can delete this text/command safely in main.tex at line 63. \cite{example-article,example-article-published-online,example-inbook,example-inbook-series-with-editor,example-inproceedings,example-proceedings,example-report,example-paper,example-phdthesis}}
-
-\bibliography{article}
+\printbibliography
 
 %% Appendix
 
 \section*{Appendix}
 
-An appendix, if needed, should appear at the end of the article.
+Possible points to include in the Appendix
+\begin{itemize}
+	\item Files from the OpenFOAM adapter with hints on how to modify them
+	\item Files from AspFAST with hints on how to reuse the code for our mapping
+\end{itemize}
 
 \end{document}

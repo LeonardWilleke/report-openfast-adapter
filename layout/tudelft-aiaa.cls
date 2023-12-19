@@ -104,10 +104,10 @@
 %%%%% II. Setting Up the Bibliography %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\RequirePackage[sort&compress,numbers]{natbib}
-\bibliographystyle{layout/tudelft-aiaa}
-\renewcommand{\bibfont}{\small} % Reduce font size
-\setlength{\bibsep}{1pt} % Reduce white space
+%\RequirePackage[sort&compress,numbers]{natbib}
+%\bibliographystyle{layout/tudelft-aiaa}
+%\renewcommand{\bibfont}{\small} % Reduce font size
+%\setlength{\bibsep}{1pt} % Reduce white space
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% III. Miscellaneous Customization %%%%%

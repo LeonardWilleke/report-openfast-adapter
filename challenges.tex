@@ -1,0 +1,61 @@
+\section{Challenges}
+
+Current limitations of the adapter
+\begin{itemize}
+	\item Only for one turbine
+	\item Only for onshore turbine
+	\item Only proof of concept: Data is exchanged in a sensible way, no knowledge about the physical correctness\\
+\end{itemize}
+
+What are the next steps in the coupling of OpenFAST via preCICE?\\
+
+Task 1: Mapping turbine data between actuator lines and volume meshes
+\begin{itemize}
+	\item Problem: The OpenFOAM adapter is not designed for the implementation of ALM
+	\item We need to get velocity from a volume section --> possible
+	\item We need to set force or pressure gradient on a volume section --> not possible
+	\item Solution 1: Do the mapping in the OpenFAST adapter
+	\begin{itemize}
+		\item Something very similar has been done by AspFAST (LINK)
+		\item Includes smearing of the actuator data which is good
+		\item Possible Problem: I add volume data to the mesh in the OpenFAST adapter that the OpenFOAM adapter is not able to write to FOAM afterwards --> think about
+	\end{itemize}
+	\item Solution 2: Modify the OpenFOAM adapter
+		\begin{itemize}
+			\item Adapt the PressureGradient.C class of the FF module
+			\item Include code to write pressure gradient on a cellset
+			\item Take structure from Pressure.C class
+			\item Problem: How to write the pressure gradient on a field in OpenFOAM?
+			\item Pressure gradient seems to be the boundary condition of the velocity field U --> this is settable
+			\item Requires the correct import of the velocity field and the correct retrieval of its boundary field --> give the commands you know
+			\item Not sure if you can also set the pressure gradient on the pressure field itself but dont think so
+			\item Open: How to do smearing if necessary\\
+		\end{itemize}
+\end{itemize}
+
+Task 2: Bring the OpenFAST adapter to maturity
+\begin{itemize}
+	\item Write a regression test
+	\item Create a first test case with documentation
+	\item Verify simulation results against simulations done with AspFAST and other tools (\cite{Taschner:2022} gives some benchmark cases)\\
+\end{itemize}
+
+Task 3: Enable coupling with multiple turbines
+\begin{itemize}
+	\item OpenFAST C++ API allows to run multiple instances of OpenFAST for wind park scenarios
+	\item How do you connect them to preCICE? 
+	\item How do you define the different coupling scenarios?
+	\item Possibly use the MacroMicro manager of preCICE to deal with the coupling of multiple domains\\
+\end{itemize}
+
+Task 4: Explore coupling scenarios with other CFD solver
+\begin{itemize}
+	\item Are there currently other CFD solvers coupled to preCICE that would be interesting?
+	\item Otherwise interesting candidates are: YALES2, GRASP, NaluWind
+	\item Most of them have native coupling tools for OpenFAST already\\
+\end{itemize}
+
+Additional remarks
+\begin{itemize}
+	\item The OpenFOAM library turbinesFoam\footnote{\url{https://github.com/turbinesFoam/turbinesFoam} (visited 14.12.2023)} \cite{Bachant:2018} might be useful. It implements the actuator line method with different solvers like pimpleFoam in OpenFOAM. The solvers are modified to perform the ALM computation. It is not clear yet how this could be of use, as we want to perform the ALM computation of the turbine to OpenFAST and map the results to OpenFOAM, not do the whole computation in OpenFOAM.
+\end{itemize}
