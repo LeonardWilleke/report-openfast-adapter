@@ -3,10 +3,23 @@
 The big picture
 \\
  \begin{itemize}
- 	\item Wind energy research
- 	\item Simulation of wind turbines with the Actuator Line Method
- 	\item Coupling of wind turbine simulation with LES CFD solver to accurately solve the wind field
- 	\item Idea and general concept of a preCICE-OpenFAST adapter
+ 	\item Understanding the flow in wind parks can have a valuable impact on many fields
+ 	\begin{itemize}
+ 		\item Engineering: Optimize turbine design and control to minimize load while maximizing power output
+ 		\item Economics: Assess the economic viability
+ 		\item Environment and Policy: Impact on the local environment and how to regulate it
+ 	\end{itemize}
+ 	\item While the detailed, high-fidelity simulation of turbines is computationally very expensive, low-fidelity engineering models present an alternative
+ 	\item Model the physical phenomena in a simplified way to represent the most important aspects for the problem at hand
+ 	\item A popular engineering model for wind turbines is the Actuator Line Method
+ 	\item Turbine tower and blades are represented as slender beams
+ 	\item Allows the detailed study of wake effects and blade deformations
+ 	\item Open-source tool OpenFAST implements such models
+ 	\item Coupling OpenFAST with a high-fidelity LES CFD solver would allow to accurately solve the wind field at moderate computational cost \ref{fig:openfast:coupling}
+ 	\item preCICE is a multi-physics coupling library to couple different solvers
+ 	\item Coupled tools include OpenFOAM, an open-source CFD solver used in industry and academia
+ 	\item To couple a tool via preCICE, an additional piece of software called adapter is necessary
+ 	\item Idea: Write a preCICE-OpenFAST adapter to couple OpenFAST to CFD solvers via preCICE
  	\\
  \end{itemize}
 
@@ -124,9 +137,21 @@ Literature Review: Understand what has been done already to couple OpenFAST with
 	\end{itemize}
 \end{itemize}
 
-\textbf{Coupling of NaluWind with OpenFAST} \cite{Ananthan:2019}\\
+\textbf{ExaWind: A Coupling of NaluWind with OpenFAST} \cite{Sprague:2019}\\
 \begin{itemize}
-	\item TODO\\
+	\item NaluWind is an open-source massively parallel, incompressible flow solver for wind turbines and parks
+	\item Is a wind-focused adaption of the general flow solver NaluCFD
+	\item Focus on delivering flow simulations in exascale
+	\item Coupled to OpenFAST to perform multi-fidelity simulations of wind parks
+	\item Verified simulation on single turbine case against other codes and experiments
+	\item Emphasis on scalability and increased simulation speed through advanced solver and coupling algorithms and the optional use of GPUs
+	\item Extensive documentation with insights into the theory and verification 
+	\item How does it relate to our work
+	\begin{itemize}
+		\item Very close to what we want to do
+		\item Especially interesting for high-performance applications
+		\item Expert tool that needs some time to set up, understand, and run --> The hope is that our coupling to the "standard" tool OpenFOAM will have a lower barrier for beginners
+	\end{itemize}
 \end{itemize}
 
 Given the previous work, why should we continue to develop a preCICE-OpenFAST adapter?
@@ -135,4 +160,10 @@ Given the previous work, why should we continue to develop a preCICE-OpenFAST ad
 	\item Maintainability: Adapter is a separated piece of code which is easier to maintain than a modified OpenFOAM solver
 	\item Open access: No license
 	\item Plug and play: Adapter opens the road to connect OpenFAST not only to OpenFOAM, but to any CFD solver coupled to preCICE
+	\item Easy to use: preCICE creates a clean simulation environment, seperating the coupled tools clearly, from which students and professionals benefit
+\end{itemize}
+What are some serious drawbacks?
+\begin{itemize}
+	\item There are currently no preCICE adapters for other CFD solvers that would be interesting to couple to: NaluWind, GRASP, ...
+	\item Developing such adapters would mean to re-implement a functionality that already exists in native coupling tools --> questionable if that is a good investment
 \end{itemize}
