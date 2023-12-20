@@ -4,6 +4,14 @@
 \subsection{Software components}
 
 \subsubsection{preCICE}
+
+preCICE \cite{Chourdakis:2022} is an open-source coupling library for partitioned multi-physics simulations. An overview of its concept is shown in Figure \ref{fig:precice:overview}. In preCICE terminology, the coupled simulation programs are called \textit{solvers} or \textit{participants}. preCICE connects different solvers to perform a partitioned simulation. It takes care of different coupling aspects such as data mapping and communication. Different coupling schemes are possible \cite{Gatzhammer:2014} by the choice of which solvers are coupled, what data is exchanged and which coupling algorithms are used. Explicit and implicit coupling schemes are available, as well as the option to connect more than two participants via multi-coupling. In addition, preCICE provides acceleration algorithms to reach a decent computation time for large simulations and time interpolation for the coupling of solvers with different time steps. The coupling scheme is defined in the \textit{precice-config.xml}, the only global file which is accessed by all participants.\\
+For each solver, a specific \textit{adapter} is necessary to communicate with preCICE. The adapter is an additional software layer which can take many forms, depending on the solver. For example, the OpenFOAM adapter is a C++ function object, an independent library, while the FEniCS adapter is a Python module. Additional language bindings in Fortran, Julia and Matlab allow the development of adapters in these languages as well.
+
+Additional remarks: library approach, scalability, HPC
+
+\begin{comment}
+
 \begin{itemize}
 	\item An overview is shown in Figure \ref{fig:precice:overview}
 	\item Coupled simulation programs are called \textit{solvers} or \textit{participants}
@@ -21,7 +29,9 @@
 	\item The Adapter allows the solver to access preCICE and to call the coupling
 \end{itemize}
 
-\begin{figure*}[t]
+\end{comment}
+
+\begin{figure*}[h]
 	\centering
 	\includegraphics[width=0.9 \textwidth]{images/precice-overview.png}
 	\caption{preCICE overview \cite{Chourdakis:2022}}
@@ -30,6 +40,9 @@
 
 
 \subsubsection{OpenFOAM and the preCICE-OpenFOAM adapter}
+
+OpenFOAM is a popular open-source PDE tool with a long history. It enables the use and modification of different solver algorithms and is used mainly for CFD simulation, but also for FEM problems and in heat transfer.
+
 \begin{itemize}
 	\item OpenFOAM
 	\begin{itemize}
@@ -48,7 +61,12 @@ Note:
 I should introduce the OpenFOAM adapter at some point.
 Lets introduce the broad concept of the adapter here and add more details, eg about the specific files that would need to be modified, later in the Challenges part
 \newline
+
 \subsubsection{OpenFAST}
+OpenFAST\footnote{\url{https://openfast.readthedocs.io/en/main/}} is a wind energy engineering tool developed by the NREL. It is widely used in academia and industry to simulate the coupled aerodynamic, structural, and electrical behaviour of wind turbines as well as the control response. The tool allows to model on- and offshore wind turbines and can be used to simulate wind parks consisting of multiple turbines as well. On a software level, OpenFAST is a glue code for different modules which compute the various physical domains. For example, the separate module AeroDyn is used to compute the aerodynamics of a simulation case and coupled to the ElastoDyn module, which computes the structural response. Additionally, it provides a C++ API to drive the simulation and compute the wind field in an external CFD tool. OpenFAST takes one main input file denoted \textit{.fst} which holds simulation metadata and points to more specific input files for each computation module.
+
+\begin{comment}
+
 \begin{itemize}
 	\item Wind energy engineering tool developed by NREL
 	\item Widely used in academia and industry
@@ -62,7 +80,9 @@ Lets introduce the broad concept of the adapter here and add more details, eg ab
 	\item Has a dedicated C++ API for the coupling with CFD solvers
 \end{itemize}
 
-OpenFAST is mainly used to perform turbine loads analysis and drive the detailed turbine design. The computational cost is therefore higher than for tools used in the early design exploration phase like WISDEM, RAFT or FLORIS, but lower than highly resolved solvers necessary to understand the actual physics and check the final turbine design like ExaWind or SOWFA. 
+\end{comment}
+
+%OpenFAST is a low- to mid-fidelity tool mainly used to perform turbine loads analysis and drive the detailed turbine design. The computational intensity is therefore higher than for tools used in the early design exploration phase like WISDEM, RAFT or FLORIS, but lower than highly resolved solvers necessary to understand the actual physics and check the final turbine design like ExaWind or SOWFA. 
 
 \subsection{Software concept}
 
