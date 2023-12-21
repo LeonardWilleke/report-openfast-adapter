@@ -1,6 +1,5 @@
 # Ignoring output and logfiles
 
-article.pdf
 *.aux
 *.bbl
 *.blg
