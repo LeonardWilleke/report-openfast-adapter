@@ -86,28 +86,35 @@ OpenFAST\footnote{\url{https://openfast.readthedocs.io/en/main/}} is a wind ener
 
 \subsection{Software concept}
 
+The main idea of this work is to develop a preCICE-OpenFAST adapter, a new piece of software that connects OpenFAST and preCICE. It acts as a driver code towards OpenFAST, leveraging the C++ API of the simulation program. Simultanously, it calls preCICE to communicate data and receive steering commands for the simulation. The software is configurable on runtime by two \textit{.yaml} input files. \textit{preciceSettings.yaml} contains information about the coupling setup such as which variables are exchanged, which meshes are used and where the global \textit{precice-config.xml} can be found. \textit{openfastSettings.yaml} adds metadata for the wind turbine simulation and points towards the OpenFAST \textit{.fst} file.\\
+
+The software concept is presented in simplified form in Figure \ref{code:adapter}. First, the header files for important libraries are included and variables for data handling are created (lines 1-5). The script then utilizes the C++ API of OpenFAST and preCICE to instantiate and initialize both tools (lines 8-14). The \textit{FAST} object allows the access of OpenFAST while the \textit{participant} object is connected to preCICE. The coupling library controls the main time loop (line 1628) which performs the coupled simulation. First, velocity data is retrieved from the CFD solver and stored locally (line 18). The information is then passed on to OpenFAST (line 20) and updated on the internal meshes of the simulation tool. OpenFAST is called to compute the wind turbine dynamics for the next time step (line 22). The resulting blade and tower force data is extracted and stored (line 24). The updated force data is passed on to the CFD solver (line 26), after which both solvers advance in time (line 28). This loop is repeated until the simulation time is completed. Finally, preCICE and OpenFAST are destructed (lines 30-31). The software is developed and documented on GitHub\footnote{\url{https://github.com/LeonardWilleke/openfast-adapter}}. 
+
+\begin{comment}
 Main idea
 \begin{itemize}
-	\item Write a preCICE-OpenFAST adapter (see Figure \ref{fig:setup}), a new piece of software that connects OpenFAST and preCICE
-	\item Acts as driver code towards OpenFAST: Calls it via the C++ API
-	\item Calls preCICE to communicate data and steering commands
-	\item Configurable by two .yaml input files
-	\item preciceSettings.yaml contains information about the coupling setup
-	\item openfastSettings.yaml contains information about the turbine simulation case
-	\item The concept is sketched out in Figure \ref{code:adapter}
-	\item line 8-10: Instantiate and initialize the interface to OpenFAST
-	\item line 12-14: Do the same for preCICE
-	\item Now both software component are ready to use
-	\item line 16: main time loop controlled by preCICE
-	\item line 18: Read velocity data from CFD solver via preCICE and store it in local variable
-	\item line 20: Set the velocity data in OpenFAST
-	\item line 22: Tell OpenFAST to compute the wind turbine dynamics for the next time step
-	\item line 24: Get the resulting force from OpenFAST and store it in local variable
-	\item line 26: Send force data to CFD solver to be used in ALM method
-	\item line 28: Advance both solvers in time
-	\item line 30-31: End the simulation after the main loop has finished
-	\item Developed and documented on GitHub\footnote{\url{https://github.com/LeonardWilleke/openfast-adapter}}\\
+\item Write a preCICE-OpenFAST adapter (see Figure \ref{fig:setup}), a new piece of software that connects OpenFAST and preCICE
+\item Acts as driver code towards OpenFAST: Calls it via the C++ API
+\item Calls preCICE to communicate data and steering commands
+\item Configurable by two .yaml input files
+\item preciceSettings.yaml contains information about the coupling setup
+\item openfastSettings.yaml contains information about the turbine simulation case
+\item The concept is sketched out in Figure \ref{code:adapter}
+\item line 8-10: Instantiate and initialize the interface to OpenFAST
+\item line 12-14: Do the same for preCICE
+\item Now both software component are ready to use
+\item line 16: main time loop controlled by preCICE
+\item line 18: Read velocity data from CFD solver via preCICE and store it in local variable
+\item line 20: Set the velocity data in OpenFAST
+\item line 22: Tell OpenFAST to compute the wind turbine dynamics for the next time step
+\item line 24: Get the resulting force from OpenFAST and store it in local variable
+\item line 26: Send force data to CFD solver to be used in ALM method
+\item line 28: Advance both solvers in time
+\item line 30-31: End the simulation after the main loop has finished
+\item Developed and documented on GitHub\footnote{\url{https://github.com/LeonardWilleke/openfast-adapter}}\\
 \end{itemize}
+\end{comment}
+
 
 \begin{comment}
 	The OpenFAST adapter is something between the FMI Runner and a normal adapter:
