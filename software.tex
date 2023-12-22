@@ -39,31 +39,65 @@ Additional remarks: library approach, scalability, HPC
 \end{figure*}
 
 
-\subsubsection{OpenFOAM and the preCICE-OpenFOAM adapter}
+\subsubsection{OpenFOAM}
 
-OpenFOAM is a popular open-source PDE tool with a long history. It enables the use and modification of different solver algorithms and is used mainly for CFD simulation, but also for FEM problems and in heat transfer.
+OpenFOAM\footnote{\url{https://www.openfoam.com/}}, an acronym for Open Field Operation and Manipulation, is a powerful open-source computational fluid dynamics (CFD) software package. This versatile tool provides a comprehensive suite of solvers and utilities for simulating and analyzing fluid flow, heat transfer, and related phenomena. Its open-source nature allows users to access, modify, and distribute the source code, fostering collaboration and innovation within the CFD community. Originally developed in the late 1980s, OpenFOAM has since evolved into a robust and widely-used simulation platform. It employs a finite volume method, making it particularly suitable for simulating complex fluid dynamics scenarios in various industries, including aerospace, automotive, energy, and environmental engineering.
 
+A key strength of OpenFOAM lies in its flexibility and extensibility. Users can customize simulations by modifying the source code or by utilizing a wide range of pre-existing solvers and libraries. This adaptability makes OpenFOAM a preferred choice for researchers, engineers, and scientists seeking to tackle diverse fluid dynamics challenges. With a strong emphasis on parallel computing, OpenFOAM is capable of leveraging high-performance computing resources to accelerate simulations, enabling the analysis of large-scale and intricate fluid flow problems. Its user-friendly interface, coupled with extensive documentation and a supportive community, makes OpenFOAM an accessible tool for both beginners and experienced practitioners in the field of computational fluid dynamics.
+
+\subsubsection{preCICE-OpenFOAM Adapter}
+
+The preCICE-OpenFOAM adapter \cite{Chourdakis:2023} is designed to facilitate robust and efficient coupling between the preCICE library and OpenFOAM to enable multi-physics simulations. At its core, the software architecture of the adapter follows a modular design, allowing for flexibility and customization in the coupling process. The adapter consists of three distinct modules tailored for fluid flow (FF), fluid-structure interaction (FSI), and conjugate heat transfer (CHT) coupling scenarios. Each module is optimized to handle the requirements of its respective physics domain.
+
+In the context of fluid flow coupling, the adapter incorporates modules that leverage preCICE to enable seamless communication between different fluid solvers. This modular architecture empowers users to mix and match specialized fluid dynamics solvers as needed, while preCICE maintains a standardized interface for consistent coupling. The coupling of two solvers can be performed at a shared boundary surface or on a shared volume.
+
+For fluid-structure interaction coupling, the architecture orchestrates the interaction between OpenFOAM's fluid dynamics solvers and external structural simulation codes. This involves careful coordination to ensure accurate and efficient data exchange, enabling comprehensive simulations of scenarios involving dynamic interactions between fluids and structures.
+
+In the realm of conjugate heat transfer coupling, the adapter's architecture facilitates the exchange of thermal information between diverse solvers within OpenFOAM and external heat transfer codes. This functionality is crucial for scenarios where temperature fields influence fluid dynamics or structural behavior, allowing for a comprehensive understanding of phenomena such as electronics cooling or combustion.
+
+The overall design emphasizes modularity, extensibility, and adherence to established standards, making the preCICE-OpenFOAM adapter an adaptable tool for a wide range of multi-physics simulations.
+
+\begin{comment}
 \begin{itemize}
-	\item OpenFOAM
-	\begin{itemize}
-		\item Popular open-source PDE tool in academia and industry
-		\item Enables the use and modification of different solvers
-		\item Used mainly for CFD but also FEM simulations 
-	\end{itemize}
-	\item Adapter
-	\begin{itemize}
-		\item Enables the coupling of OpenFOAM via preCICE in different simulation scenarios
-		\item Exemplifies the development strategy behind preCICE: Adapter is a library for OpenFOAM and called on runtime to perform the coupling without any modification to the OpenFOAM source code
-		\item Different modules for different kinds of multi-physics simulations: FSI, FF, CHT
-	\end{itemize}
+\item OpenFOAM
+\begin{itemize}
+\item General information
+\begin{itemize}
+\item Leading open-source software for computational fluid dynamics
+\item Used in academia and industry
+\item Scalable from laptops to supercomputers
+\item Use cases: aerodynamics, aeroacoustics, particles, chemical reactions, ...
+\end{itemize}
+\item Setup
+\begin{itemize}
+\item Build upon 
+\end{itemize}
+\item Enables the use and modification of different solvers
+\item Used mainly for CFD but also FEM simulations 
+\end{itemize}
+\item Adapter
+\begin{itemize}
+\item Enables the coupling of OpenFOAM via preCICE in different simulation scenarios
+\item Exemplifies the development strategy behind preCICE: Adapter is a library for OpenFOAM and called on runtime to perform the coupling without any modification to the OpenFOAM source code
+\item Different modules for different kinds of multi-physics simulations: FSI, FF, CHT
+\end{itemize}
 \end{itemize}	
 Note:
 I should introduce the OpenFOAM adapter at some point.
 Lets introduce the broad concept of the adapter here and add more details, eg about the specific files that would need to be modified, later in the Challenges part
 \newline
+\end{comment}
+
+
 
 \subsubsection{OpenFAST}
-OpenFAST\footnote{\url{https://openfast.readthedocs.io/en/main/}} is a wind energy engineering tool developed by the NREL. It is widely used in academia and industry to simulate the coupled aerodynamic, structural, and electrical behaviour of wind turbines as well as the control response. The tool allows to model on- and offshore wind turbines and can be used to simulate wind parks consisting of multiple turbines as well. On a software level, OpenFAST is a glue code for different modules which compute the various physical domains. For example, the separate module AeroDyn is used to compute the aerodynamics of a simulation case and coupled to the ElastoDyn module, which computes the structural response. Additionally, it provides a C++ API to drive the simulation and compute the wind field in an external CFD tool. OpenFAST takes one main input file denoted \textit{.fst} which holds simulation metadata and points to more specific input files for each computation module.
+%OpenFAST\footnote{\url{https://openfast.readthedocs.io/en/main/}} is a wind energy engineering tool developed by the National Renewable Energy Laboratory (NREL). It is widely used in academia and industry to simulate the coupled aerodynamic, structural, and electrical behaviour of wind turbines as well as the control response. The tool allows to model on- and offshore wind turbines and can be used to simulate wind parks consisting of multiple turbines as well. 
+
+OpenFAST\footnote{\url{https://openfast.readthedocs.io/en/main/}} is a versatile and open-source simulation tool developed for the analysis and design of wind turbines. This software, maintained by the National Renewable Energy Laboratory (NREL) in collaboration with the wind energy community, provides a comprehensive platform for simulating the aerodynamics, structural dynamics, and turbulence effects associated with wind turbine systems.
+
+OpenFAST is designed to meet the evolving needs of the wind energy industry, offering a modular and extensible architecture that allows users to tailor simulations to specific requirements. Its capabilities span a range of applications, including load analysis, controller design, and overall turbine performance assessment. The software incorporates advanced modeling techniques for aerodynamics, structural dynamics, and control systems, ensuring accurate representation of wind turbine behavior in various operating conditions. With a focus on high-performance computing, OpenFAST can leverage parallel processing to handle complex simulations efficiently, facilitating the analysis of large-scale wind turbine systems. The tool supports the simulation of various turbine configurations, including land-based and offshore turbines with fixed or floating platforms. This flexibility makes it a valuable tool for addressing the diverse challenges associated with wind energy projects.
+
+On a software level, OpenFAST is a glue code for different modules which compute the various physical domains. For example, the separate module AeroDyn is used to compute the aerodynamics of a simulation case. Another module called ElastoDyn computes the structural response of the aerodynamic loads. Both tools are then coupled in runtime in the framework. OpenFAST can be interfaced with a C++ API to drive the simulation and couple the simulation to an external CFD tool.
 
 \begin{comment}
 
