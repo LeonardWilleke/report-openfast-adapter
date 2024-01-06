@@ -14,6 +14,7 @@ To drive the adapter development and test the software at its current state, two
 \end{comment}
 
 \subsection{Coupling OpenFAST with a dummy CFD solver}
+\label{section:cases:dummy}
 
 The motivation for this case is to provide a simple and fast way to test different functionalities and gain insight, not to perform realistic simulations. OpenFAST computes a land-based NREL 5MW turbine with a fixed rotor to avoid mesh problems on the moving blades. The fluid solver is implemented as a simple C++ script. It creates a mesh that can be used to map data from OpenFAST and write constant values back. The dummy does not perform any calculations. To perform the coupling, the script calls preCICE. This case allows to explore the mapping and data exchange in a minimal setup.
 
@@ -57,11 +58,15 @@ Case dummy-turbine
 
 
 \subsection{Coupling OpenFAST with OpenFOAM}
+\label{section:cases:foam}
 
-The motivation for this case is to perform a realistic simulation with OpenFAST and a CFD tool. To increase complexity, OpenFAST computes a land-based NREL 5MW turbine with a moving rotor. As fluid solver, OpenFOAM is used. The CFD program computes the fluid domain around the turbine to model the impact of the turbine on the wind field. The preCICE-OpenFOAM adapter is used for the communication with OpenFOAM. This case allows to explore the coupling in a realistic setup.
+The motivation for this case is to perform a realistic simulation with OpenFAST and a CFD tool. To increase complexity, OpenFAST computes a land-based NREL 5MW turbine with a moving rotor. As fluid solver, OpenFOAM is used. The CFD program computes the fluid domain around the turbine to model the impact of the turbine on the wind field. The preCICE-OpenFOAM adapter is used for the communication with OpenFOAM. The coupling scheme is identical to the previous case. This case allows to explore the coupling in a realistic setup.
 
-The coupling scheme is identical to the previous case. There are different options on how to represent the results from OpenFAST in OpenFOAM. 
+OpenFOAM computes a rectangular space surrounding the turbine. A subdomain of this space, defined as a \textit{cellSet} in OpenFOAM and shown in Figure \ref{fig:mesh:foam}, is coupled to OpenFAST. Force data from the OpenFAST mesh seen in Figure \ref{fig:mesh:fast} are mapped to this subdomain, while velocity data is transferred back. The mapping between the two different domains is performed by preCICE. Although a first data exchange is achieved, the coupling is physically not correct.
 
+The broader goal for this example case is to implement the Actuator-Line Method to represent the turbine in the OpenFOAM fluid field. This would ensure a correct coupling. However, the preCICE-OpenFOAM adapter is not designed to implement this method. How to map between the line mesh in OpenFAST and the volume mesh in OpenFOAM as shown in Figure \ref{fig:mesh} therefore remains an open question.
+
+\begin{comment}
 Case cfd-turbine
 \begin{itemize}
 	\item Explain the setup
@@ -80,13 +85,14 @@ Case cfd-turbine
 	\begin{itemize}
 		\item Volume mesh / cellSet
 		\item Surface mesh / patch
-		\item ALM implementation (eg with turbinesFoam)\\
+		\item ALM implementation (eg with turbinesFoam)
 	\end{itemize}
 	\item What are the main obstacles towards this goal?
 	\begin{itemize}
 		\item The OpenFOAM adapter is not designed to implement a coupling with a solver using the actuator line method. How to map between the line mesh in OpenFAST (Figure \ref{fig:mesh:fast}) and the volume mesh in OpenFOAM (Figure \ref{fig:mesh:foam})?
 	\end{itemize}
 \end{itemize}
+\end{comment}
 
 \newpage
 \begin{figure*}[h]

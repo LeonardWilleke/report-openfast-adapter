@@ -2194,8 +2194,8 @@
     <bcf:citekey order="10">Chourdakis:2023</bcf:citekey>
     <bcf:citekey order="11">Jonkman:2009</bcf:citekey>
     <bcf:citekey order="12">Taschner:2022</bcf:citekey>
-    <bcf:citekey order="13">Taschner:2022</bcf:citekey>
-    <bcf:citekey order="14">Bachant:2018</bcf:citekey>
+    <bcf:citekey order="13">Bachant:2018</bcf:citekey>
+    <bcf:citekey order="14">Taschner:2022</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
