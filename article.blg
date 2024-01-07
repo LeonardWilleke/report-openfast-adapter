@@ -1,0 +1,21 @@
+[0] Config.pm:304> INFO - This is Biber 2.14 (beta)
+[0] Config.pm:307> INFO - Logfile is 'article.blg'
+[77] biber:322> INFO - === So Jan  7, 2024, 18:50:30
+[93] Biber.pm:415> INFO - Reading 'article.bcf'
+[156] Biber.pm:943> INFO - Found 11 citekeys in bib section 0
+[168] Biber.pm:4256> INFO - Processing section 0
+[169] Utils.pm:75> INFO - Globbing data source 'article.bib'
+[169] Utils.pm:91> INFO - Globbed data source 'article.bib' to article.bib
+[180] Biber.pm:4455> INFO - Looking for bibtex format file 'article.bib' for section 0
+[181] bibtex.pm:1653> INFO - LaTeX decoding ...
+[193] bibtex.pm:1471> INFO - Found BibTeX data source 'article.bib'
+[219] Utils.pm:293> WARN - year field 'March 2017' in entry 'Churchfield:2017' is not an integer - this will probably not sort properly.
+[295] Utils.pm:293> WARN - month field 'Feb' in entry 'Chourdakis:2023' is not an integer - this will probably not sort properly.
+[306] Utils.pm:293> WARN - year field 'published online 22 Sep. 2018' in entry 'Bachant:2018' is not an integer - this will probably not sort properly.
+[326] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[326] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[326] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[326] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[346] bbl.pm:652> INFO - Writing 'article.bbl' with encoding 'UTF-8'
+[357] bbl.pm:755> INFO - Output to article.bbl
+[357] Biber.pm:128> INFO - WARNINGS: 3

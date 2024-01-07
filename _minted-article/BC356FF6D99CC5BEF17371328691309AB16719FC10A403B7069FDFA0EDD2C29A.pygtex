@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+		\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}OpenFAST.H\PYGZgt{}}
+		\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}precice.hpp\PYGZgt{}}
+		
+		\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{double}\PYG{o}{\PYGZgt{}} \PYG{n}{readData}\PYG{p}{;}
+		\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{double}\PYG{o}{\PYGZgt{}} \PYG{n}{writeData}\PYG{p}{;}
+		
+		\PYG{c+c1}{// OpenFAST Setup}
+		\PYG{n}{fast}\PYG{o}{::}\PYG{n}{OpenFAST} \PYG{n}{FAST}\PYG{p}{;}
+		\PYG{p}{...}
+		\PYG{n}{FAST}\PYG{p}{.}\PYG{n}{init}\PYG{p}{()}
+		\PYG{c+c1}{// preCICE Setup}
+		\PYG{n}{participant} \PYG{o}{=} \PYG{n}{precice}\PYG{p}{.}\PYG{n}{participant}\PYG{p}{(...);}
+		\PYG{p}{...}
+		\PYG{n}{participant}\PYG{p}{.}\PYG{n}{initialize}\PYG{p}{();}
+		\PYG{c+c1}{// main time loop}
+		\PYG{k}{while} \PYG{n}{participant}\PYG{p}{.}\PYG{n}{isCouplingOngoing}\PYG{p}{()}\PYG{o}{:}
+			\PYG{c+c1}{// Get read data from preCICE}
+			\PYG{n}{participant}\PYG{p}{.}\PYG{n}{readData}\PYG{p}{(}\PYG{n}{readData}\PYG{p}{,} \PYG{p}{...);}
+			\PYG{c+c1}{// Set read data in OpenFAST}
+			\PYG{n}{FAST}\PYG{p}{.}\PYG{n}{setVelocity}\PYG{p}{(}\PYG{n}{readData}\PYG{p}{,} \PYG{p}{...);}
+			\PYG{c+c1}{// Compute next time step}
+			\PYG{n}{FAST}\PYG{p}{.}\PYG{n}{step}\PYG{p}{();}
+			\PYG{c+c1}{// Get write data from OpenFAST}
+			\PYG{n}{FAST}\PYG{p}{.}\PYG{n}{getForce}\PYG{p}{(}\PYG{n}{writeData}\PYG{p}{,} \PYG{p}{...);}
+			\PYG{c+c1}{// Send write data to preCICE}
+			\PYG{n}{participant}\PYG{p}{.}\PYG{n}{writeData}\PYG{p}{(}\PYG{n}{writeData}\PYG{p}{,} \PYG{p}{...);}
+			\PYG{c+c1}{// Advance preCICE in time}
+			\PYG{n}{participant}\PYG{p}{.}\PYG{n}{advance}\PYG{p}{(}\PYG{n}{dt}\PYG{p}{)}
+		
+		\PYG{n}{participant}\PYG{p}{.}\PYG{n}{finalize}\PYG{p}{()}
+		\PYG{n}{FAST}\PYG{p}{.}\PYG{n}{end}\PYG{p}{()}
+\end{Verbatim}

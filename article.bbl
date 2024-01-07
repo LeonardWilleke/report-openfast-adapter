@@ -1,0 +1,571 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Ananthan:2019}{report}{}
+      \name{author}{14}{}{%
+        {{hash=c7cac76801c43b65e701dc59731af56e}{%
+           family={Ananthan},
+           familyi={A\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3626d89ecdcdeb0458f0f3293d94cea9}{%
+           family={Capone},
+           familyi={C\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=50ae06624c65c49b8a31ba609f11652e}{%
+           family={Frahan},
+           familyi={F\bibinitperiod},
+           given={M.\bibnamedelimi H.},
+           giveni={M\bibinitperiod\bibinitdelim H\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=30c3519915a07c272d6fd946f3eaa35a}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b6755e449b77085c52f052e32a2ee354}{%
+           family={Melvin},
+           familyi={M\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ca547df6c9b8457696b0f20f7c2d32e4}{%
+           family={Overfelt},
+           familyi={O\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a3fd4f0ea9e0c4ee7050feb90555899e}{%
+           family={Sharma},
+           familyi={S\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8cb3994d3fcda57807cdb79efe772629}{%
+           family={Sitaraman},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b6588cbfe8c414bf71a25d490606781f}{%
+           family={Swirydowicz},
+           familyi={S\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=403523006188f9dc01b80ec5392c1003}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c998b6d07fffa12edf04e67fc37f4191}{%
+           family={Vijayakumar},
+           familyi={V\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=38c6a15d43daa8565d14173e05326704}{%
+           family={Williams},
+           familyi={W\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ad22516b485099e847dc22dfa9d3a7b8}{%
+           family={Yellapantulla},
+           familyi={Y\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ebe8a1aaab48dc775c7ce47c17c72792}{%
+           family={Sprague},
+           familyi={S\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{1d5691f5fad93154f3ce725713982bac}
+      \strng{fullhash}{b0cbe33c2927987fe29b80cf8ac55329}
+      \strng{bibnamehash}{1d5691f5fad93154f3ce725713982bac}
+      \strng{authorbibnamehash}{1d5691f5fad93154f3ce725713982bac}
+      \strng{authornamehash}{1d5691f5fad93154f3ce725713982bac}
+      \strng{authorfullhash}{b0cbe33c2927987fe29b80cf8ac55329}
+      \field{sortinit}{A}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{SAND2019-3687R}
+      \field{title}{Nalu-Wind and OpenFAST: A high-fidelity modeling and simulation environment for wind energy}
+      \field{year}{2019}
+    \endentry
+    \entry{Bachant:2018}{article}{}
+      \name{author}{3}{}{%
+        {{hash=24e8a6e5f15496e5a49bcf6170957398}{%
+           family={Bachant},
+           familyi={B\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=a4bf220929cb243a5ae69340d120e9cc}{%
+           family={Goude},
+           familyi={G\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f157eaae284f47648c92f8fcde49bfd3}{%
+           family={Wosnik},
+           familyi={W\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{8837c27d430c3a779be70fa3e12dcbb0}
+      \strng{fullhash}{8837c27d430c3a779be70fa3e12dcbb0}
+      \strng{bibnamehash}{8837c27d430c3a779be70fa3e12dcbb0}
+      \strng{authorbibnamehash}{8837c27d430c3a779be70fa3e12dcbb0}
+      \strng{authornamehash}{8837c27d430c3a779be70fa3e12dcbb0}
+      \strng{authorfullhash}{8837c27d430c3a779be70fa3e12dcbb0}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv}
+      \field{title}{Actuator line modeling of vertixal-axis turbines}
+      \field{year}{published online 22 Sep. 2018}
+    \endentry
+    \entry{Chourdakis:2022}{article}{}
+      \name{author}{20}{}{%
+        {{hash=59b7a27f94152bf9038416d7dcea774d}{%
+           family={Chourdakis},
+           familyi={C\bibinitperiod},
+           given={G},
+           giveni={G\bibinitperiod}}}%
+        {{hash=648f9e97adaf282f188d50a70d875c15}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod}}}%
+        {{hash=3fab07f6302ff3c76750fec523e3c9d8}{%
+           family={Rodenberg},
+           familyi={R\bibinitperiod},
+           given={B},
+           giveni={B\bibinitperiod}}}%
+        {{hash=3f86e7cebdd2c13c0a2cb5cdcacf0b2e}{%
+           family={Schulte},
+           familyi={S\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod}}}%
+        {{hash=79d437b7700ffa0f90fdae71eff8f080}{%
+           family={Simonis},
+           familyi={S\bibinitperiod},
+           given={F},
+           giveni={F\bibinitperiod}}}%
+        {{hash=728e4437600578a369dfc048dcb1e747}{%
+           family={Uekermann},
+           familyi={U\bibinitperiod},
+           given={B},
+           giveni={B\bibinitperiod}}}%
+        {{hash=25a73021d8c3fa4c4fc8f5601d0d9b58}{%
+           family={Abrams},
+           familyi={A\bibinitperiod},
+           given={G},
+           giveni={G\bibinitperiod}}}%
+        {{hash=6a64504d68795b3159ef58450151d3b9}{%
+           family={Bungartz},
+           familyi={B\bibinitperiod},
+           given={HJ},
+           giveni={H\bibinitperiod}}}%
+        {{hash=df132b84a565ddf5b078969e2c4978c5}{%
+           family={Cheung\bibnamedelima Yau},
+           familyi={C\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           given={L},
+           giveni={L\bibinitperiod}}}%
+        {{hash=6ea82b23711b0f81e44f0e288c82d2bd}{%
+           family={Desai},
+           familyi={D\bibinitperiod},
+           given={I},
+           giveni={I\bibinitperiod}}}%
+        {{hash=012071ce6ec31e8b9d71eddf765c6c31}{%
+           family={Eder},
+           familyi={E\bibinitperiod},
+           given={K},
+           giveni={K\bibinitperiod}}}%
+        {{hash=2f283754fb1ac4dbb6dc1397db2f79e0}{%
+           family={Hertrich},
+           familyi={H\bibinitperiod},
+           given={R},
+           giveni={R\bibinitperiod}}}%
+        {{hash=bf660378ab04b17dfe8c1a6d28deb9ed}{%
+           family={Lindner},
+           familyi={L\bibinitperiod},
+           given={F},
+           giveni={F\bibinitperiod}}}%
+        {{hash=9180a2bdb9a15a0ccb2caec70b594170}{%
+           family={Rusch},
+           familyi={R\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f2fa389abff72a0774d9692d33d92eee}{%
+           family={Sashko},
+           familyi={S\bibinitperiod},
+           given={D},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ef4d04eff6963070a831236406f8f2ce}{%
+           family={Schneider},
+           familyi={S\bibinitperiod},
+           given={D},
+           giveni={D\bibinitperiod}}}%
+        {{hash=cbcc23d43fd18715511bac385396a592}{%
+           family={Totounferoush},
+           familyi={T\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+        {{hash=bec0a51989900dd65c396b238b935e6a}{%
+           family={Volland},
+           familyi={V\bibinitperiod},
+           given={D},
+           giveni={D\bibinitperiod}}}%
+        {{hash=a7b7d9c0e625261d7d793f27ecd1fac0}{%
+           family={Vollmer},
+           familyi={V\bibinitperiod},
+           given={P},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b3596a6036c18733195fb98828063e91}{%
+           family={Koseomur},
+           familyi={K\bibinitperiod},
+           given={OZ},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{b8474064198732a72f7efee93edaaef8}
+      \strng{fullhash}{c3f380bf6f3f83245395665812920027}
+      \strng{bibnamehash}{b8474064198732a72f7efee93edaaef8}
+      \strng{authorbibnamehash}{b8474064198732a72f7efee93edaaef8}
+      \strng{authornamehash}{b8474064198732a72f7efee93edaaef8}
+      \strng{authorfullhash}{c3f380bf6f3f83245395665812920027}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Open Research Europe}
+      \field{number}{51}
+      \field{title}{{preCICE v2}: A sustainable and user-friendly coupling library [version 2; peer review: 2 approved]}
+      \field{volume}{2}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.12688/openreseurope.14445.2
+      \endverb
+    \endentry
+    \entry{Chourdakis:2023}{article}{}
+      \name{author}{3}{}{%
+        {{hash=614c76b39b7bce61e6c06b273cbd7cbc}{%
+           family={Chourdakis},
+           familyi={C\bibinitperiod},
+           given={Gerasimos},
+           giveni={G\bibinitperiod}}}%
+        {{hash=3d6188be24e74affe2d841c8a22a7e3d}{%
+           family={Schneider},
+           familyi={S\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=96492da40bafc5224b4ca48bed84b96a}{%
+           family={Uekermann},
+           familyi={U\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e9050632cb011ae6a26e3e6652c81a9}
+      \strng{fullhash}{9e9050632cb011ae6a26e3e6652c81a9}
+      \strng{bibnamehash}{9e9050632cb011ae6a26e3e6652c81a9}
+      \strng{authorbibnamehash}{9e9050632cb011ae6a26e3e6652c81a9}
+      \strng{authornamehash}{9e9050632cb011ae6a26e3e6652c81a9}
+      \strng{authorfullhash}{9e9050632cb011ae6a26e3e6652c81a9}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{OpenFOAM® Journal}
+      \field{month}{2}
+      \field{title}{{OpenFOAM-preCICE}: Coupling {OpenFOAM} with external solvers for multi-physics simulations}
+      \field{volume}{3}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 25}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.51560/ofj.v3.88
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.51560/ofj.v3.88
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.51560/ofj.v3.88
+      \endverb
+    \endentry
+    \entry{Churchfield:2012}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=4afd84f6c9db5c13f2c84c4642aeaa12}{%
+           family={Churchfield},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=aa5a7c8780167efaa3ed45566a0806a0}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=2f681ad96a2d93cc345d62ec45b9fba0}{%
+           family={Moriarty},
+           familyi={M\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{5106ab4cff2192cda52e9381047b4f46}
+      \strng{fullhash}{5106ab4cff2192cda52e9381047b4f46}
+      \strng{bibnamehash}{5106ab4cff2192cda52e9381047b4f46}
+      \strng{authorbibnamehash}{5106ab4cff2192cda52e9381047b4f46}
+      \strng{authornamehash}{5106ab4cff2192cda52e9381047b4f46}
+      \strng{authorfullhash}{5106ab4cff2192cda52e9381047b4f46}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Overview of the Simulator for Wind Farm Applications (SOWFA)}
+      \field{type}{Presentation}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb https://www.nrel.gov/wind/nwtc/assets/pdfs/sowfa-tutorial.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.nrel.gov/wind/nwtc/assets/pdfs/sowfa-tutorial.pdf
+      \endverb
+    \endentry
+    \entry{Churchfield:2017}{report}{}
+      \name{author}{5}{}{%
+        {{hash=4afd84f6c9db5c13f2c84c4642aeaa12}{%
+           family={Churchfield},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2b49374756eddfbb6f226e973cabe870}{%
+           family={Schreck},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=be97ac391da523a0570facb8d421319d}{%
+           family={Martinez-Tossas},
+           familyi={M\bibinithyphendelim T\bibinitperiod},
+           given={L.\bibnamedelimi A.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=98bcd8e1207ab384bd4d3e5588fed222}{%
+           family={Meneveau},
+           familyi={M\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=9ab8d90aa8156f64f0ac2fb1d2e42860}{%
+           family={Spalart},
+           familyi={S\bibinitperiod},
+           given={P.\bibnamedelimi R.},
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{76147fd042e7e3f1b26bf31aded0cca6}
+      \strng{fullhash}{22f5ecf547b2cfe307ddbd888308607b}
+      \strng{bibnamehash}{76147fd042e7e3f1b26bf31aded0cca6}
+      \strng{authorbibnamehash}{76147fd042e7e3f1b26bf31aded0cca6}
+      \strng{authornamehash}{76147fd042e7e3f1b26bf31aded0cca6}
+      \strng{authorfullhash}{22f5ecf547b2cfe307ddbd888308607b}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{NREL/CP-5000-67611}
+      \field{title}{An advanced actuator line method for wind energy applications and beyond}
+      \field{year}{March 2017}
+    \endentry
+    \entry{Gatzhammer:2014}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=1bf2336c6feeb9225c5617c0cfc52684}{%
+           family={Gatzhammer},
+           familyi={G\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Technical University of Munich}%
+      }
+      \strng{namehash}{1bf2336c6feeb9225c5617c0cfc52684}
+      \strng{fullhash}{1bf2336c6feeb9225c5617c0cfc52684}
+      \strng{bibnamehash}{1bf2336c6feeb9225c5617c0cfc52684}
+      \strng{authorbibnamehash}{1bf2336c6feeb9225c5617c0cfc52684}
+      \strng{authornamehash}{1bf2336c6feeb9225c5617c0cfc52684}
+      \strng{authorfullhash}{1bf2336c6feeb9225c5617c0cfc52684}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Efficient and Flexible Partitioned Simulation of Fluid-Structure Interactions}
+      \field{type}{phdthesis}
+      \field{year}{2014}
+      \field{pages}{1\bibrangedash 183}
+      \range{pages}{183}
+    \endentry
+    \entry{Jonkman:2009}{report}{}
+      \name{author}{4}{}{%
+        {{hash=f8d09c62e7d673c36ba7963e24615aee}{%
+           family={Jonkman},
+           familyi={J\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d33b8ec4b8d8b439bfd5e69c4aa1eae6}{%
+           family={Butterfield},
+           familyi={B\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=059b41fa48f31395e5c15e4e04780b6b}{%
+           family={Musial},
+           familyi={M\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=2c76a97a740a41948f5f38bf9f337e28}{%
+           family={Scott},
+           familyi={S\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{66a6b411bd1eb985dae681987553fe21}
+      \strng{fullhash}{3a47e0b2032188b28a736a77c0032161}
+      \strng{bibnamehash}{66a6b411bd1eb985dae681987553fe21}
+      \strng{authorbibnamehash}{66a6b411bd1eb985dae681987553fe21}
+      \strng{authornamehash}{66a6b411bd1eb985dae681987553fe21}
+      \strng{authorfullhash}{3a47e0b2032188b28a736a77c0032161}
+      \field{sortinit}{J}
+      \field{sortinithash}{c45040a764d616897e7f5b30174d7b92}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{NREL/TP-500-38060}
+      \field{title}{Definition of a 5-MW Reference Wind Turbine for Offshore System Development}
+      \field{year}{2009}
+    \endentry
+    \entry{Sprague:2019}{article}{}
+      \name{author}{3}{}{%
+        {{hash=ebe8a1aaab48dc775c7ce47c17c72792}{%
+           family={Sprague},
+           familyi={S\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=4af0f094a88878fc24abc3e2d504f6de}{%
+           family={Ananthan},
+           familyi={A\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           suffix={S.\bibnamedelimi Vijayakumar},
+           suffixi={S\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=a47054238a96962b5fb612812edb5164}{%
+           family={Robinson},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {NAWEA/WindTech 2019 Conference, Amherst, MA}%
+      }
+      \strng{namehash}{e45d36bbe63bfdefaf14ebf898dd62b1}
+      \strng{fullhash}{e45d36bbe63bfdefaf14ebf898dd62b1}
+      \strng{bibnamehash}{e45d36bbe63bfdefaf14ebf898dd62b1}
+      \strng{authorbibnamehash}{e45d36bbe63bfdefaf14ebf898dd62b1}
+      \strng{authornamehash}{e45d36bbe63bfdefaf14ebf898dd62b1}
+      \strng{authorfullhash}{e45d36bbe63bfdefaf14ebf898dd62b1}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Physics: Conference Series}
+      \field{title}{ExaWind: A multifidelity modeling and simulation environment for wind energy}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1088/1742-6596/1452/1/012071
+      \endverb
+    \endentry
+    \entry{Taschner:2022}{article}{}
+      \name{author}{5}{}{%
+        {{hash=6e458c387a38ab0817d09588c0a6004e}{%
+           family={Taschner},
+           familyi={T\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=247f31d4b36a0f3fdd55fe667f343a33}{%
+           family={Folkersma},
+           familyi={F\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5a7d87b87e1297fd06aeccd084dd99d9}{%
+           family={Martinez-Tossa},
+           familyi={M\bibinithyphendelim T\bibinitperiod},
+           given={L.A.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=bee899820a507d46200d88f6d430c239}{%
+           family={Verzijlbergh},
+           familyi={V\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=87c95d5a86f997451a5493d8f0c45a54}{%
+           family={Wingerden},
+           familyi={W\bibinitperiod},
+           given={J.W.},
+           giveni={J\bibinitperiod},
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+      }
+      \strng{namehash}{20d5d7aeb3c1a068e064542f27aa373c}
+      \strng{fullhash}{ef135b176cf1edd65b81e936787f0bca}
+      \strng{bibnamehash}{20d5d7aeb3c1a068e064542f27aa373c}
+      \strng{authorbibnamehash}{20d5d7aeb3c1a068e064542f27aa373c}
+      \strng{authornamehash}{20d5d7aeb3c1a068e064542f27aa373c}
+      \strng{authorfullhash}{ef135b176cf1edd65b81e936787f0bca}
+      \field{sortinit}{T}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Wind Energy}
+      \field{title}{A new coupling of a GPU-resident large-eddy simulation code with a multiphysics wind turbine simulation tool}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 21}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1002/we.2844
+      \endverb
+    \endentry
+    \entry{Weber:2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f7fdc47bff7d9c4dada8be93cd0247a7}{%
+           family={Weber},
+           familyi={W\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Delft University of Technology}%
+      }
+      \strng{namehash}{f7fdc47bff7d9c4dada8be93cd0247a7}
+      \strng{fullhash}{f7fdc47bff7d9c4dada8be93cd0247a7}
+      \strng{bibnamehash}{f7fdc47bff7d9c4dada8be93cd0247a7}
+      \strng{authorbibnamehash}{f7fdc47bff7d9c4dada8be93cd0247a7}
+      \strng{authornamehash}{f7fdc47bff7d9c4dada8be93cd0247a7}
+      \strng{authorfullhash}{f7fdc47bff7d9c4dada8be93cd0247a7}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{fastFoam: An aero-servo-elastic wind turbine simulation method based on CFD}
+      \field{type}{Master thesis}
+      \field{year}{2017}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
