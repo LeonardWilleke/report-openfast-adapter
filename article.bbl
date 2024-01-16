@@ -414,6 +414,49 @@
       \field{pages}{1\bibrangedash 183}
       \range{pages}{183}
     \endentry
+    \entry{Jha:2014}{article}{}
+      \name{author}{4}{}{%
+        {{hash=cb0ee564a6a6f961d2145bb71a66b80f}{%
+           family={Jha},
+           familyi={J\bibinitperiod},
+           given={P.\bibnamedelimi K.},
+           giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=e15254996a35092051331d1a6542821b}{%
+           family={Churchfield},
+           familyi={C\bibinitperiod},
+           given={M.\bibnamedelimi J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=6df6b4cb83ab5e020d331d167a8654b7}{%
+           family={Moriarty},
+           familyi={M\bibinitperiod},
+           given={P.\bibnamedelimi J.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=87367114b3ac4a2f1fe8497c91d0bef7}{%
+           family={Schmitz},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Association of Mechanical Engineers}%
+      }
+      \strng{namehash}{6ee284962e7903ac3309ae0793b9aa2c}
+      \strng{fullhash}{3a0e36c050fba26ce28461a4d731dab7}
+      \strng{bibnamehash}{6ee284962e7903ac3309ae0793b9aa2c}
+      \strng{authorbibnamehash}{6ee284962e7903ac3309ae0793b9aa2c}
+      \strng{authornamehash}{6ee284962e7903ac3309ae0793b9aa2c}
+      \strng{authorfullhash}{3a0e36c050fba26ce28461a4d731dab7}
+      \field{sortinit}{J}
+      \field{sortinithash}{c45040a764d616897e7f5b30174d7b92}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Solar Energy Engineering}
+      \field{title}{Guidelines for volume force distributions within Actuator Line Modeling of Wind Turbines on Large-Eddy Simulation-Type Grids}
+      \field{year}{August 2014}
+      \verb{doi}
+      \verb 10.1115/1.4026252
+      \endverb
+    \endentry
     \entry{Jonkman:2009}{report}{}
       \name{author}{4}{}{%
         {{hash=f8d09c62e7d673c36ba7963e24615aee}{%
@@ -450,6 +493,44 @@
       \field{number}{NREL/TP-500-38060}
       \field{title}{Definition of a 5-MW Reference Wind Turbine for Offshore System Development}
       \field{year}{2009}
+    \endentry
+    \entry{Meyer:2019}{article}{}
+      \name{author}{3}{}{%
+        {{hash=9b8182b88229f72cb5a76d99a19d7aa5}{%
+           family={Meyer\bibnamedelima Forsting},
+           familyi={M\bibinitperiod\bibinitdelim F\bibinitperiod},
+           given={A.\bibnamedelimi R.},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=312da436dfa5a2fdedc81566966abd32}{%
+           family={Pirrung},
+           familyi={P\bibinitperiod},
+           given={G.\bibnamedelimi R.},
+           giveni={G\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=ad1271dd23d84dc6d3cd1700edde1c41}{%
+           family={Ramos-Garcia},
+           familyi={R\bibinithyphendelim G\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {European Association of Wind Energy EAWE}%
+      }
+      \strng{namehash}{b6c0f4506eaf455652a2f60bf9b8cc5e}
+      \strng{fullhash}{b6c0f4506eaf455652a2f60bf9b8cc5e}
+      \strng{bibnamehash}{b6c0f4506eaf455652a2f60bf9b8cc5e}
+      \strng{authorbibnamehash}{b6c0f4506eaf455652a2f60bf9b8cc5e}
+      \strng{authornamehash}{b6c0f4506eaf455652a2f60bf9b8cc5e}
+      \strng{authorfullhash}{b6c0f4506eaf455652a2f60bf9b8cc5e}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Wind Energy Science Discussions}
+      \field{title}{A vortex based tip/smearing correction for the actuator line}
+      \field{year}{published online 28.06.2019}
+      \verb{doi}
+      \verb 10.5194/wes-4-369-2019
+      \endverb
     \endentry
     \entry{Sprague:2019}{article}{}
       \name{author}{3}{}{%

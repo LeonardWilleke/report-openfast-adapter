@@ -1,17 +1,42 @@
 \section{Challenges}
 \label{section:challenges}
 
-What are the next steps in the coupling of OpenFAST via preCICE? This section aims to give an overview of the upcoming tasks to guide interested developers in their endeavour. 
+What are the next steps in the coupling of OpenFAST via preCICE? This section aims to give an overview of the upcoming tasks to guide interested developers in their endeavour.
 
-\subsection{Mapping turbine data between actuator lines and volume meshes}
+\subsection{Map data in the OpenFAST adapter}
 
-The most pressing issue is to implement a correct mapping. As seen in chapter \ref{section:cases}, the mapping depends not only on the preCICE-OpenFAST adapter, but also on the preCICE adapter of the CFD solver. In our case, we face problems because the OpenFOAM adapter was not designed for the implementation of ALM. In particular, the volume coupling functionalities are not sufficient. It is possible to retrieve velocity data from a volume. But it is not possible to write force or pressure gradient data on a volume. However, this functionality is needed to implement a bidirectional coupling for this FSI case. I see two solutions to this problem:\\
-\textbf{Solution 1: Map in the OpenFAST adapter}\\
-The code\footnote{\url{https://gitlab.com/whiffle-public/aspfast} (visited on 28.12.2023)} from AspFAST provides a possible solution. The tool to connect OpenFAST and GRASP is published under a MIT license and can therefore be re-used without limitations. It implements useful mapping functions in the main script \textit{aspast.cpp}. To communicate from OpenFAST to the CFD solver, the functions \textit{calcBodyForce}, \textit{uniformBodyForce} and \textit{diskBodyForce} are used. To understand the mapping from CFD to OpenFAST, look into the functions \textit{sampleVelocity} and \textit{calcVelocity}. Including similar functions in the OpenFAST adapter could help to address mapping problems. It is still unclear how the mapped force values would then be transferred to a volume mesh in OpenFOAM.\\[12pt]
-\textbf{Solution 2: Modify the OpenFOAM adapter}\\
-Another solution is to add the missing functionality in the OpenFOAM adapter. For the coupling setup, the Fluid-Fluid (FF) module of the adapter is used. For a correct coupling, OpenFOAM needs to include the updated field values of force or pressure gradient from OpenFAST. But the OpenFOAM adapter only supports the exchange of pressure as field value. To change this, we need to adapt the class \textit{PressureGradient.C} of the FF module. A code section to write pressure gradient data on a cellset should be added. Have a look in the class \textit{Pressure.C} of the FF module to get an idea how to access and write field values in OpenFOAM in general.
+\begin{comment}
+\begin{itemize}
+	\item preCICE and its adapters were not designed for the implementation of ALM
+	\item mapping in preCICE does not include sufficient functions to translate between volume and line mesh
+	\item We need sampling and smearing methods to connect them
+	\item See aspast.cpp on how this could be done in the OpenFAST adapter
+	\item Problems
+	\begin{itemize}
+		\item What to do with the internal preCICE mapping? Use only for data transfer? Feels weird and error-prone
+		\item Which mesh to use in preCICE for FAST? The same fluid mesh as for FOAM. Coupling scheme needs to be changed
+		\item Possibility to include such methods in preCICE internally? Unlikely
+	\end{itemize}
+\end{itemize}
+\end{comment}
 
-Inside OpenFOAM, the pressure gradient is stored as the boundary condition of the velocity field U. Therefore, we need to import the velocity field U in the class \textit{PressureGradient.C} and use appropriate commands from OpenFOAM to set its boundary condition. Setting the boundary condition on a cellset and not on a wall or inlet might be tricky.
+The most pressing issue is to implement a correct mapping. We face problems because preCICE and its components were not designed for the implementation of ALM and lack functions to translate data between volume and line meshes.
+In particular, we need sampling and smearing methods. Sampling is used to choose a subset of data points from a volume mesh and map them on a line mesh. In our case, this means sampling velocity data from the CFD solver and mapping it to OpenFAST.
+Smearing is used to distribute data from a line mesh over a volume mesh. Hence, we use it to take force data from OpenFAST and translate it to the CFD solver mesh. More insight into smearing for wind energy applications can be found in  \cite{Jha:2014} and \cite{Meyer:2019}.\\
+
+The code\footnote{\url{https://gitlab.com/whiffle-public/aspfast} (visited on 28.12.2023)} from AspFAST provides a blueprint for sampling and smearing methods. The tool to connect OpenFAST and GRASP is published under a MIT license and can therefore be re-used without limitations. It implements useful mapping functions in the main script \textit{aspast.cpp}. To communicate from OpenFAST to the CFD solver, the functions \textit{calcBodyForce}, \textit{uniformBodyForce} and \textit{diskBodyForce} are used. To understand the mapping from CFD to OpenFAST, look into the functions \textit{sampleVelocity} and \textit{calcVelocity}. Including similar functions in the OpenFAST adapter could address the current mapping problems.\\
+
+However, implementing additional mapping functions in the OpenFAST adapter raises questions on how to use the adapter with the preCICE core library. Using preCICE to communicate between solvers usually means to use the internal mapping facilities of preCICE, which would lead to double-mapping in our case. Also, the OpenFAST adapter will need access to the CFD volume mesh. Direct mesh access\footnote{\url{https://precice.org/couple-your-code-direct-access.html} (visited on 16.01.2024)} could solve both issued by circumventing the preCICE mapping and granting the OpenFAST adapter direct access to the CFD volume mesh stored in preCICE.
+
+\subsection{Modify the OpenFOAM adapter}
+
+Once the mapping issue is resolved, the adapter of the CFD solver will receive correct force values from the preCICE library. Now, these values have to be set in the CFD program. The adapter needs to access the internal force field of the CFD solver and overwrite it with the data obtained from the OpenFAST calculation.
+
+The OpenFOAM adapter currently lacks this functionality. It has volume coupling functionalities, eg. to retrieve velocity data from OpenFOAM or write pressure data to it. It also has the capacity to exchange force data on surfaces. But writing force (or pressure gradient) data on a volume is currently not implemented. Note that this is a limitation of this specific adapter and how it interacts with the CFD solver, not of preCICE itself.\\
+
+To solve this problem, the missing methods can be added to the OpenFOAM adapter. I propose to modify the Fluid-Fluid (FF) module of the adapter which is used in the current coupling setup. We need to adapt the class \textit{PressureGradient.C} of the FF module. The class implements methods to read and write pressure gradient data on surfaces (patches). A code section to write pressure gradient data on a volume (preferably a cellSet) should be added. Have a look in the class \textit{Pressure.C} of the FF module to get an idea how to access and write field values in OpenFOAM in general.
+
+Inside OpenFOAM, the pressure gradient is stored as the boundary condition of the velocity field U. Therefore, we need to import the velocity field U in the class \textit{PressureGradient.C} and use appropriate commands from OpenFOAM to set its boundary condition. Setting the boundary condition on a cellSet and not on a wall or inlet might be tricky.
 
 As an additional remark, the OpenFOAM library turbinesFoam\footnote{\url{https://github.com/turbinesFoam/turbinesFoam} (visited 14.12.2023)} \cite{Bachant:2018} might be useful. It implements the actuator line method with different solvers like pimpleFoam. The solvers are modified to perform the ALM computation. It is not clear yet how this could be of use, as we want to perform the ALM computation of the turbine in OpenFAST and map the results to OpenFOAM, not do the whole computation in OpenFOAM.
 
@@ -51,7 +76,7 @@ As an additional remark, the OpenFOAM library turbinesFoam\footnote{\url{https:/
 
 \subsection{Improve code maturity}
 
-To railguard the further development, a regression test should be implemented. The dummy fluid solver from chapter \ref{section:cases:dummy} can be used as a simple coupling participant to check calculations. The preCICE-FMI runner\footnote{\url{https://github.com/precice/fmi-runner/tree/main} (visited on 06.01.2024)} may serve as an example on how to write the test, place it in the GitHub repository and execute it automatically with GitHub workflows.
+To railguard the further development, a regression test for the OpenFAST adapter should be implemented. The dummy fluid solver from chapter \ref{section:cases:dummy} can be used as a simple coupling participant to check calculations. The preCICE-FMI runner\footnote{\url{https://github.com/precice/fmi-runner/tree/main} (visited on 06.01.2024)} may serve as an example on how to write the test, place it in the GitHub repository and execute it automatically with GitHub workflows.
 
 Once a mature coupling to OpenFOAM is achieved, the coupling should be verified. Previous work \cite{Taschner:2022} provides a benchmark case to cross-verify the coupling of a single NREL 5MW turbine with five other research LES codes.
 \begin{comment}

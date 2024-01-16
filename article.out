@@ -11,8 +11,9 @@
 \BOOKMARK [2][-]{subsection.4.1}{Coupling OpenFAST with a dummy CFD solver}{section.4}% 11
 \BOOKMARK [2][-]{subsection.4.2}{Coupling OpenFAST with OpenFOAM}{section.4}% 12
 \BOOKMARK [1][-]{section.5}{Challenges}{}% 13
-\BOOKMARK [2][-]{subsection.5.1}{Mapping turbine data between actuator lines and volume meshes}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.2}{Improve code maturity}{section.5}% 15
-\BOOKMARK [2][-]{subsection.5.3}{Enable coupling with multiple turbines}{section.5}% 16
-\BOOKMARK [2][-]{subsection.5.4}{Explore coupling scenarios with other CFD solver}{section.5}% 17
-\BOOKMARK [1][-]{section.6}{Conclusion}{}% 18
+\BOOKMARK [2][-]{subsection.5.1}{Map data in the OpenFAST adapter}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.2}{Modify the OpenFOAM adapter}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.3}{Improve code maturity}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.4}{Enable coupling with multiple turbines}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.5}{Explore coupling scenarios with other CFD solver}{section.5}% 18
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 19
