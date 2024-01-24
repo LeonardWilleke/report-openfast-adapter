@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.6.1)  16 JAN 2024 14:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.6.1)  24 JAN 2024 12:13
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1713,11 +1713,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 87.
 Here is how much of TeX's memory you used:
  29752 strings out of 481239
  552045 string characters out of 5920378
- 1285394 words of memory out of 5000000
+ 1285457 words of memory out of 5000000
  44313 multiletter control sequences out of 15000+600000
  622473 words of font info for 185 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,8n,80p,1318b,1770s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,8n,80p,1311b,1770s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/share/texlive/texm
 f-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-sc.enc}{/usr/share/texlive/texmf-dist/f
 onts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dv
@@ -1729,7 +1729,7 @@ ublic/tex-gyre/qtmr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmri.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb>
-Output written on article.pdf (12 pages, 892961 bytes).
+Output written on article.pdf (12 pages, 893061 bytes).
 PDF statistics:
  305 PDF objects out of 1000 (max. 8388607)
  268 compressed objects within 3 object streams
